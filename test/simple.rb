@@ -56,10 +56,10 @@ class TestSimpleNumber < Test::Unit::TestCase
       next if line.length == 0
       if line.match(/^# ?(.+)/)
         name = $1
-        puts "name is #{name}"
+        # puts "name is #{name}"
         next
       end
-      puts "[#{line}]"
+      # puts "[#{line}]"
       vals = line.split(/\s+/).collect! {|x|
         if x.match(/^undef$/)
           nil
@@ -71,7 +71,7 @@ class TestSimpleNumber < Test::Unit::TestCase
           x
         end
       }
-      puts vals.inspect
+      # puts vals.inspect
       oldpage = Data::Page.new(vals[0].to_i, vals[1].to_i, vals[2].to_i)
       self._check(oldpage, name, vals);
       newpage = Data::Page.new()
@@ -95,7 +95,7 @@ class TestSimpleNumber < Test::Unit::TestCase
     assert_equal(page.entries_on_this_page, 10)
   end
   def _check(page, name, vals)
-    puts "check #{page.total_entries} total_entries, #{page.entries_per_page} entries_per_page, #{page.current_page} current_page"
+    # puts "check #{page.total_entries} total_entries, #{page.entries_per_page} entries_per_page, #{page.current_page} current_page"
     assert_instance_of(Data::Page, page)
     assert_equal(page.first_page, vals[3])
     assert_equal(page.last_page, vals[4])
