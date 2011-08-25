@@ -1,4 +1,4 @@
-require "lib/Data/Page"
+require "datapage"
 require "test/unit"
 
 class TestSimpleNumber < Test::Unit::TestCase
